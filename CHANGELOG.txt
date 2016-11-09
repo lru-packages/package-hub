@@ -1,0 +1,3 @@
+* Wed Nov 9 2016 Ryan Parman <ryan@ryanparman.com> 2.2.9-1
+- Initial build of the RPM.
+- Bundles Hub 2.2.9.
