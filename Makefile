@@ -41,8 +41,8 @@ clean:
 
 .PHONY: compile
 compile:
-	wget -O $(NAME).zip https://github.com/github/hub/releases/download/v$(VERSION)/hub-linux-amd64-$(VERSION).tgz
-	unzip $(NAME).zip
+	wget -O $(NAME).tgz https://github.com/github/hub/releases/download/v$(VERSION)/hub-linux-amd64-$(VERSION).tgz
+	tar zxvf $(NAME).tgz
 
 #-------------------------------------------------------------------------------
 
