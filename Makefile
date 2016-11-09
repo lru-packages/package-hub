@@ -39,10 +39,11 @@ clean:
 
 #-------------------------------------------------------------------------------
 
-.PHONY: compile
-compile:
-	wget -O $(NAME).tgz https://github.com/github/hub/releases/download/v$(VERSION)/hub-linux-amd64-$(VERSION).tgz
-	tar zxvf $(NAME).tgz
+.PHONY: extract
+extract:
+	mkdir -p /tmp/installdir-$(NAME)-$(VERSION);
+	wget https://github.com/github/hub/releases/download/v$(VERSION)/hub-linux-amd64-$(VERSION).tgz
+	tar -C /tmp/installdir-$(NAME)-$(VERSION) -xzf hub-linux-amd64-$(VERSION).tgz
 
 #-------------------------------------------------------------------------------
 
@@ -55,6 +56,7 @@ package:
 		-t rpm \
 		-n $(NAME) \
 		-v $(VERSION) \
+		-C /tmp/installdir-$(NAME)-$(VERSION)/hub-linux-amd64-$(VERSION) \
 		-m $(MAINTAINER) \
 		--epoch $(EPOCH) \
 		--iteration $(ITERATION) \
@@ -69,7 +71,9 @@ package:
 		--rpm-os linux \
 		--rpm-auto-add-directories \
 		--template-scripts \
-		hub \
+		bin \
+		etc \
+		share \
 	;
 
 #-------------------------------------------------------------------------------
