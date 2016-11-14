@@ -35,7 +35,7 @@ info:
 
 .PHONY: clean
 clean:
-	rm -Rf /tmp/installdir* github*
+	rm -Rf /tmp/installdir* github* hub*
 
 #-------------------------------------------------------------------------------
 
