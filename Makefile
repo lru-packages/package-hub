@@ -1,7 +1,6 @@
 NAME=github-hub
 VERSION=2.2.9
-EPOCH=1
-ITERATION=2
+ITERATION=1.lru
 PREFIX=/usr/local
 LICENSE=BSD
 VENDOR="GitHub"
@@ -20,7 +19,6 @@ all: info clean extract package move
 info:
 	@ echo "NAME:        $(NAME)"
 	@ echo "VERSION:     $(VERSION)"
-	@ echo "EPOCH:       $(EPOCH)"
 	@ echo "ITERATION:   $(ITERATION)"
 	@ echo "PREFIX:      $(PREFIX)"
 	@ echo "LICENSE:     $(LICENSE)"
@@ -58,7 +56,6 @@ package:
 		-v $(VERSION) \
 		-C /tmp/installdir-$(NAME)-$(VERSION)/hub-linux-amd64-$(VERSION) \
 		-m $(MAINTAINER) \
-		--epoch $(EPOCH) \
 		--iteration $(ITERATION) \
 		--license $(LICENSE) \
 		--vendor $(VENDOR) \
